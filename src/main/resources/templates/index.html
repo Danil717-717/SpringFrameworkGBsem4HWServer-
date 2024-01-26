@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>   Welcome User!!</h1>
+    <form th:method="GET" th:action="@{/user/new}" th:object="${user}">
+        <input type="submit" value="Registr!"/>
+        <br>
+    <h1>Users: </h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="user:${userList}">
+            <td th:text="${user.getName}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.email}"></td>
+        </tr>
+    </table>
+</body>
+</html>
