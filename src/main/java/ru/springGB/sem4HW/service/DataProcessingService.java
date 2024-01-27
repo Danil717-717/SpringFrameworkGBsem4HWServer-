@@ -26,7 +26,7 @@ public class DataProcessingService {
     }
 
     public void addUser(User user){
-        userRepo.addUser(user);
+        userRepo.save(user);
     }
 
     public List<User> sortUserByAge(List<User> users){

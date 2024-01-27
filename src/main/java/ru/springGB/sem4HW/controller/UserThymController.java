@@ -6,23 +6,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.springGB.sem4HW.User;
 import ru.springGB.sem4HW.service.RegistrationService;
+import ru.springGB.sem4HW.service.UserService;
 
 @Controller
-@RequestMapping("/use")
+@RequestMapping("/users")
 public class UserThymController {
 
     private final RegistrationService registrationService;
+    private final UserService userService;
 
     @Autowired
-    public UserThymController(RegistrationService registrationService) {
+    public UserThymController(RegistrationService registrationService, UserService userService) {
         this.registrationService = registrationService;
+        this.userService = userService;
     }
 
 
     @GetMapping()
     public String index(Model model){
-        model.addAttribute("user", registrationService.getUsers());
-        return "index";
+        model.addAttribute("users", userService.getALLUsers());
+        return "users";
     }
 
 
@@ -35,13 +38,9 @@ public class UserThymController {
     @PostMapping
     public String create(@ModelAttribute("user") User user){
         registrationService.saveUser(user);
-        return "index";
+        return "redirect:users";
     }
 
-//    @GetMapping("/users")
-//    public String getUsers(@ModelAttribute("users") User user){
-//        registrationService.getUsers();
-//        return "index";
-//    }
+
 
 }

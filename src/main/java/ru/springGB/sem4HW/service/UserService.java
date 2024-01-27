@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.springGB.sem4HW.User;
 import ru.springGB.sem4HW.repository.UserRepo;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -27,7 +29,7 @@ public class UserService {
     @PostMapping
     public User createUser(@RequestParam("name") String name,
                            @RequestParam("age") int age,
-                           @RequestParam("email") String email){
+                           @RequestParam("email") String email) {
 
         User user = new User();
         user.setName(name);
@@ -40,8 +42,17 @@ public class UserService {
     }
 
     @PostMapping()
-    public String createUs(@ModelAttribute("user") User user){
-        userRepo.addUser(user);
+    public String createUs(@ModelAttribute("user") User user) {
+        userRepo.save(user);
         return "successPage";
     }
+
+    public List<User> getALLUsers() {
+        return userRepo.findAll();
+    }
+
+    public User getUserById(Long id) {
+        return userRepo.findById(id);
+    }
+
 }

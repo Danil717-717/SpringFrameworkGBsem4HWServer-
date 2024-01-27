@@ -1,6 +1,8 @@
 package ru.springGB.sem4HW;
 
 public class User {
+
+    private Long id;
     private String name;
     private int age;
     private String email;
@@ -9,10 +11,19 @@ public class User {
 
     }
 
-    public User(String name, int age, String email) {
+    public User(Long id, String name, int age, String email) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -42,7 +53,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 '}';
