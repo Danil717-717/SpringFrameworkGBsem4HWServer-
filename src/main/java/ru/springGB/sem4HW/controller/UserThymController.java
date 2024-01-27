@@ -8,6 +8,7 @@ import ru.springGB.sem4HW.User;
 import ru.springGB.sem4HW.service.RegistrationService;
 
 @Controller
+@RequestMapping("/use")
 public class UserThymController {
 
     private final RegistrationService registrationService;
@@ -31,10 +32,16 @@ public class UserThymController {
         return "new";
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public String create(@ModelAttribute("user") User user){
-        registrationService.acceptsData(user.getName(),user.getAge(),user.getEmail());
+        registrationService.saveUser(user);
         return "index";
     }
+
+//    @GetMapping("/users")
+//    public String getUsers(@ModelAttribute("users") User user){
+//        registrationService.getUsers();
+//        return "index";
+//    }
 
 }

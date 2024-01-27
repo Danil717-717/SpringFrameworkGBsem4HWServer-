@@ -3,14 +3,19 @@ package ru.springGB.sem4HW.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import ru.springGB.sem4HW.User;
+import ru.springGB.sem4HW.repository.UserRepo;
 
 @Service
 public class UserService {
 
     private final NotificationService notificationService;
+    @Autowired
+    private UserRepo userRepo;
 
 
     @Autowired
@@ -32,5 +37,11 @@ public class UserService {
         notificationService.notifyCreatedUser(user);
 
         return user;
+    }
+
+    @PostMapping()
+    public String createUs(@ModelAttribute("user") User user){
+        userRepo.addUser(user);
+        return "successPage";
     }
 }

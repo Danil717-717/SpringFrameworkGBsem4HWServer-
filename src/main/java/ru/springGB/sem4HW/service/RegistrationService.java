@@ -25,6 +25,10 @@ public class RegistrationService {
         return user;
     }
 
+    public void saveUser(User user) {
+        processingService.addUser(user);
+    }
+
     public List<User> getUsers(){
         List<User> list = processingService.getAllUsers();
         notificationService.notifyListUser(list);
