@@ -9,10 +9,17 @@ import java.util.List;
 public class NotificationService {
 
     public void notifyCreatedUser(User user) {
+
         System.out.println("A new user has been created: " + user.getName());
     }
 
+    public void notifyUserId(Long id) {
+
+        System.out.println("User id: " + id);
+    }
+
     public void notifyListUser(List<User> list) {
+
         System.out.println("The list Users: " + list);
     }
 
@@ -21,10 +28,12 @@ public class NotificationService {
     }
 
     public void notifyFilterListUser(List<User> list) {
+
         System.out.println("The list is filtered " + list);
     }
 
     public void notifyAvgUser(double avg) {
+
         System.out.println("The avg age Users " + avg);
     }
 

@@ -40,4 +40,9 @@ public class RegistrationService {
         return processingService.sortUserByAge(list);
     }
 
+    public User getUserId(Long id){
+        notificationService.notifyUserId(id);
+        return processingService.getUserId(id);
+    }
+
 }

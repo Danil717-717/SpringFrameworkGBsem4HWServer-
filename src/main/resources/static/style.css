@@ -1,0 +1,37 @@
+h1 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h2{
+    padding-left: 100px;
+}
+
+p{
+    padding-left: 275px;
+}
+
+form{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.inputuser{
+    width: 150px;
+    height: 50px;
+    background: blanchedalmond;
+    border-radius: 15px;
+}
+
+table{
+    padding-left: 100px;
+}
+
+.formreg{
+    text-align: center;
+    padding-top: 50px;
+}
+

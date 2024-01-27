@@ -24,7 +24,7 @@ public class UserThymController {
 
     @GetMapping()
     public String index(Model model){
-        model.addAttribute("users", userService.getALLUsers());
+        model.addAttribute("users", registrationService.getUsers());
         return "users";
     }
 
@@ -39,6 +39,13 @@ public class UserThymController {
     public String create(@ModelAttribute("user") User user){
         registrationService.saveUser(user);
         return "redirect:users";
+    }
+
+    @GetMapping("/{id}")
+    public String getUser(@PathVariable Long id, Model model){
+        //model.addAttribute("user", userService.getUserById(id));
+        model.addAttribute("user", registrationService.getUserId(id));
+        return "userProfile";
     }
 
 

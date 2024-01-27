@@ -29,6 +29,10 @@ public class DataProcessingService {
         userRepo.save(user);
     }
 
+    public User getUserId(Long id){
+        return userRepo.findById(id);
+    }
+
     public List<User> sortUserByAge(List<User> users){
         return users.stream()
                 .sorted(Comparator.comparing(User::getAge))
