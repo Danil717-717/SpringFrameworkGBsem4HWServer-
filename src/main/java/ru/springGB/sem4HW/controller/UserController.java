@@ -56,23 +56,6 @@ public class UserController {
         return new ResponseEntity<>(userRepoService.avgListUsers(),HttpStatus.OK);
     }
 
-    @GetMapping()
-    public String index(Model model){
-        model.addAttribute("user", registrationService.getUsers());
-        return "index";
-    }
 
-
-    @GetMapping("/new")
-    public String newUser(Model model){
-        model.addAttribute("user", new User());
-        return "new";
-    }
-
-    @PostMapping()
-    public String create(@ModelAttribute("user") User user){
-        registrationService.acceptsData(user.getName(),user.getAge(),user.getEmail());
-        return "/user/users";
-    }
 
 }
