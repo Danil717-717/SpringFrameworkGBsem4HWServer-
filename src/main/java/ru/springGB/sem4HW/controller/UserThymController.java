@@ -13,12 +13,11 @@ import ru.springGB.sem4HW.service.UserService;
 public class UserThymController {
 
     private final RegistrationService registrationService;
-    private final UserService userService;
+
 
     @Autowired
     public UserThymController(RegistrationService registrationService, UserService userService) {
         this.registrationService = registrationService;
-        this.userService = userService;
     }
 
 
@@ -43,7 +42,6 @@ public class UserThymController {
 
     @GetMapping("/{id}")
     public String getUser(@PathVariable Long id, Model model){
-        //model.addAttribute("user", userService.getUserById(id));
         model.addAttribute("user", registrationService.getUserId(id));
         return "userProfile";
     }

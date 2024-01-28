@@ -2,15 +2,12 @@ package ru.springGB.sem4HW.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import ru.springGB.sem4HW.User;
 import ru.springGB.sem4HW.repository.UserRepo;
 
-import java.util.List;
 
 @Service
 public class UserService {
@@ -47,12 +44,5 @@ public class UserService {
         return "successPage";
     }
 
-    public List<User> getALLUsers() {
-        return userRepo.findAll();
-    }
-
-    public User getUserById(Long id) {
-        return userRepo.findById(id);
-    }
 
 }

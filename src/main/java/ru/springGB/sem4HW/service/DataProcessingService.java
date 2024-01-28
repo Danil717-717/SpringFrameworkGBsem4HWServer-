@@ -14,7 +14,6 @@ public class DataProcessingService {
 
     @Autowired
     private UserRepo userRepo;
-    private RegistrationService registrationService;
 
 
     public String getGreeting(){
