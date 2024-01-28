@@ -35,7 +35,8 @@ public class RegistrationService {
         return list;
     }
 
-    public List<User> sortUsers(List<User> list){
+    public List<User> sortUsers(){
+        List<User> list = processingService.getAllUsers();
         notificationService.notifySortListUser(list);
         return processingService.sortUserByAge(list);
     }
@@ -43,6 +44,12 @@ public class RegistrationService {
     public User getUserId(Long id){
         notificationService.notifyUserId(id);
         return processingService.getUserId(id);
+    }
+
+    public List<User> filterUsers(int age){
+        List<User> list = processingService.getAllUsers();
+        notificationService.notifyFilterListUser(list);
+        return processingService.filterUserByAge(list,age);
     }
 
 }

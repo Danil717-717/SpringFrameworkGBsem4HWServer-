@@ -5,13 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.springGB.sem4HW.User;
-import ru.springGB.sem4HW.repository.UserRepo;
 import ru.springGB.sem4HW.service.RegistrationService;
 import ru.springGB.sem4HW.service.UserRepoService;
-import ru.springGB.sem4HW.service.UserService;
+
 
 import java.util.List;
 
